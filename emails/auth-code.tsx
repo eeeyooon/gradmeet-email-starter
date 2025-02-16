@@ -15,7 +15,7 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-export default function AWSVerifyEmail() {
+export default function AuthCode() {
   return (
     <Html>
       <Head />
@@ -82,6 +82,7 @@ const main = {
 };
 
 const container = {
+  maxWidth: "400px",
   width: "335px",
   margin: "0 auto",
 };
