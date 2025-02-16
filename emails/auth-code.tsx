@@ -18,7 +18,15 @@ import * as React from "react";
 export default function AuthCode() {
   return (
     <Html>
-      <Head />
+      <Head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+        <meta name="x-apple-disable-message-reformatting" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+        />
+      </Head>
       <Body style={main}>
         <Preview>그라밋 인증 코드 전송</Preview>
         <Container style={container}>
@@ -38,9 +46,11 @@ export default function AuthCode() {
 
               <Section style={verificationSection}>
                 <Section style={codeSection}>
-                  <Text style={codeText}>{360426}</Text>
+                  <Row align="center">
+                    <Text style={codeText}>{360426}</Text>
+                  </Row>
                 </Section>
-                <Row style={{ padding: "0 50.5px" }}>
+                <Row style={{ padding: "0 55px" }}>
                   <Column>
                     <Img
                       src="https://dobby-prod-bucket.s3.ap-northeast-2.amazonaws.com/images/logo/ic_information.png"
@@ -57,17 +67,16 @@ export default function AuthCode() {
               </Section>
             </Section>
             <Section style={lowerSection}>
-              본 메일은 발신전용입니다. <br />
-              궁금하신 사항은{" "}
-              <Link href="mailto:team.gradmeet@gmail.com" style={link}>
-                team.gradmeet@gmail.com
-              </Link>
-              로 문의해 주시면 답변 드리겠습니다.
-              <br />
-              <br />
-              회원님은 2025/01/17 현재 메일수신에 동의하셨기에 본 메일을 발송합니다.
-              <br />
-              추후 메일 수신을 원하지 않으시면 여기[수신거부]를 클릭하여 주시기 바랍니다.
+              <Text style={footerText}>
+                본 메일은 발신전용입니다. <br /> 궁금하신 사항은{" "}
+                <Link href="mailto:team.gradmeet@gmail.com" style={link}>
+                  team.gradmeet@gmail.com
+                </Link>
+                로 문의해 주시면 답변 드리겠습니다.
+              </Text>
+              <Text style={footerText}>
+                메일 수신을 원하지 않으시면 로그인 후 [내 정보 수정] 페이지에서 수신 여부를 변경할 수 있습니다.
+              </Text>
             </Section>
           </Section>
         </Container>
@@ -76,14 +85,16 @@ export default function AuthCode() {
   );
 }
 
+const fontFamily =
+  "'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif";
+
 const main = {
   backgroundColor: "#fff",
   color: "#353B3D",
 };
 
 const container = {
-  maxWidth: "400px",
-  width: "335px",
+  width: "390px",
   margin: "0 auto",
 };
 
@@ -119,10 +130,13 @@ const imageSection = {
   marginBottom: "8px",
 } as const;
 
-const mainSection = {} as const;
+const mainSection = {
+  width: "390px",
+};
 
 const upperSection = {
   height: "278px",
+  width: "390px",
   padding: "30px 20px 40px 20px",
   backgroundColor: "#F6F8F9",
   borderTopLeftRadius: "5px",
@@ -146,6 +160,7 @@ const codeSection = {
   padding: "28px 86.5px",
   borderRadius: "12px",
 
+  width: "100%",
   marginBottom: "14px",
 };
 
@@ -165,7 +180,12 @@ const validityText = {
 };
 
 const verificationSection = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  margin: "0 auto",
+};
+
+const footerText = {
+  margin: "none",
+  lineHeight: "14px",
+  color: "#6D7B82",
+  fontSize: "9px",
 };
